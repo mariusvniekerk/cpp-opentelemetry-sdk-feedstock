@@ -13,7 +13,7 @@ build:
   number: 1
   always_include_files:
     - lib/cmake/opentelemetry-cpp/ # [unix]
-    - Library/cmake/opentelemetry-cpp/ # [win]
+    - Library/lib/cmake/opentelemetry-cpp/ # [win]
 
 requirements:
   build:
