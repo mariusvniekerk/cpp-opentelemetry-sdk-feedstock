@@ -20,13 +20,13 @@ requirements:
     - {{ compiler('cxx') }}
     - cmake >=3.1
     - ninja
+    - proto-opentelemetry-proto
   host:
     # -api and -sdk packages of different versions are not necessarily
     # compatible.
     - cpp-opentelemetry-api ={{ version }}
     - grpc-cpp
     - nlohmann_json
-    - proto-opentelemetry-proto
     - libprotobuf >=3.18
     - zlib
   run:
