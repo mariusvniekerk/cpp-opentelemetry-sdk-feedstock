@@ -10,18 +10,23 @@ source:
   sha256: f8fd3adddd47be382dc79c19d7e7efcf86a0dfbb5a237db6e0618dbb7eb8e058
 
 build:
-  number: 0
+  number: 1
+  always_include_files:
+    - lib/cmake/opentelemetry-cpp/  # [unix]
+    - Library/lib/cmake/opentelemetry-cpp/  # [win]
 
 requirements:
   build:
     - {{ compiler('cxx') }}
     - cmake >=3.1
     - ninja
+    - proto-opentelemetry-proto
   host:
-    - cpp-opentelemetry-api
+    # -api and -sdk packages of different versions are not necessarily
+    # compatible.
+    - cpp-opentelemetry-api ={{ version }}
     - grpc-cpp
     - nlohmann_json
-    - proto-opentelemetry-proto
     - libprotobuf >=3.18
     - zlib
   run:
@@ -32,10 +37,12 @@ test:
   commands:
     - test -d $PREFIX/include/opentelemetry/sdk/  # [unix]
     - test -d $PREFIX/lib/cmake/opentelemetry-cpp/  # [unix]
+    - test -f $PREFIX/lib/cmake/opentelemetry-cpp/opentelemetry-cpp-config.cmake  # [unix]
     - test -f $PREFIX/lib/libopentelemetry_common.a  # [unix]
     - test -f $PREFIX/lib/libopentelemetry_exporter_otlp_grpc.a  # [unix]
     - if not exist %LIBRARY_INC%\opentelemetry\sdk exit 1  # [win]
     - if not exist %LIBRARY_LIB%\cmake\opentelemetry-cpp exit 1  # [win]
+    - if not exist %LIBRARY_LIB%\cmake\opentelemetry-cpp\opentelemetry-cpp-config.cmake exit 1  # [win]
     - if not exist %LIBRARY_LIB%\opentelemetry_common.lib exit 1  # [win]
     - if not exist %LIBRARY_LIB%\opentelemetry_exporter_otlp_grpc.lib exit 1  # [win]
 
