@@ -13,7 +13,7 @@ build:
   number: 1
   always_include_files:
     - lib/cmake/opentelemetry-cpp/ # [unix]
-    - cmake/opentelemetry-cpp/  # [win]
+    - Library/cmake/opentelemetry-cpp/ # [win]
 
 requirements:
   build:
@@ -22,7 +22,7 @@ requirements:
     - ninja
   host:
     # -api and -sdk packages of different versions are not necessarily
-    # -compatible.
+    # compatible.
     - cpp-opentelemetry-api ={{ version }}
     - grpc-cpp
     - nlohmann_json
@@ -37,10 +37,12 @@ test:
   commands:
     - test -d $PREFIX/include/opentelemetry/sdk/  # [unix]
     - test -d $PREFIX/lib/cmake/opentelemetry-cpp/  # [unix]
+    - test -f $PREFIX/lib/cmake/opentelemetry-cpp/opentelemetry-cpp-config.cmake  # [unix]
     - test -f $PREFIX/lib/libopentelemetry_common.a  # [unix]
     - test -f $PREFIX/lib/libopentelemetry_exporter_otlp_grpc.a  # [unix]
     - if not exist %LIBRARY_INC%\opentelemetry\sdk exit 1  # [win]
     - if not exist %LIBRARY_LIB%\cmake\opentelemetry-cpp exit 1  # [win]
+    - if not exist %LIBRARY_LIB%\cmake\opentelemetry-cpp\opentelemetry-cpp-config.cmake exit 1  # [win]
     - if not exist %LIBRARY_LIB%\opentelemetry_common.lib exit 1  # [win]
     - if not exist %LIBRARY_LIB%\opentelemetry_exporter_otlp_grpc.lib exit 1  # [win]
 
