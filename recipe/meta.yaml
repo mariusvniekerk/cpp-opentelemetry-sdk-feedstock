@@ -12,8 +12,8 @@ source:
 build:
   number: 1
   always_include_files:
-    - lib/cmake/opentelemetry-cpp/ # [unix]
-    - Library/lib/cmake/opentelemetry-cpp/ # [win]
+    - lib/cmake/opentelemetry-cpp/  # [unix]
+    - Library/lib/cmake/opentelemetry-cpp/  # [win]
 
 requirements:
   build:
