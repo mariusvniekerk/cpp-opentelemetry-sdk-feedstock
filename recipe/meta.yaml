@@ -10,7 +10,7 @@ source:
   sha256: f8fd3adddd47be382dc79c19d7e7efcf86a0dfbb5a237db6e0618dbb7eb8e058
 
 build:
-  number: 0
+  number: 1
   always_include_files:
     - lib/cmake/opentelemetry-cpp/ # [unix]
     - cmake/opentelemetry-cpp/  # [win]
