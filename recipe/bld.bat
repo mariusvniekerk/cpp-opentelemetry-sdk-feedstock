@@ -16,10 +16,12 @@ cmake .. ^
       -DCMAKE_INSTALL_PREFIX=%LIBRARY_PREFIX% ^
       -DBUILD_TESTING=OFF ^
       -DWITH_API_ONLY=OFF ^
-      -DWITH_ETW=OFF ^
+      -DWITH_ETW=ON ^
       -DWITH_EXAMPLES=OFF ^
       -DWITH_OTLP=ON ^
-      -DWITH_OTLP_GRPC=ON
+      -DWITH_OTLP_GRPC=ON ^
+      -DWITH_OTLP_HTTP=ON ^
+      -DWITH_ZIPKIN=ON
 
 cmake --build . --config Release --target install
 if errorlevel 1 exit 1

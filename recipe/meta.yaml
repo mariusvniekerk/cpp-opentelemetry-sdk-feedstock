@@ -8,10 +8,13 @@ package:
 source:
   url: https://github.com/open-telemetry/opentelemetry-cpp/archive/refs/tags/v{{ version }}.tar.gz
   sha256: f8fd3adddd47be382dc79c19d7e7efcf86a0dfbb5a237db6e0618dbb7eb8e058
+  patches:
+    - cross_compile_grpc_cpp_plugin_path.patch  # [build_platform != target_platform]
 
 build:
-  number: 2
+  number: 3
   always_include_files:
+    # Must overwrite the ones installed by cpp-opentelemetry-api
     - lib/cmake/opentelemetry-cpp/  # [unix]
     - Library/lib/cmake/opentelemetry-cpp/  # [win]
 
@@ -21,15 +24,24 @@ requirements:
     - cmake >=3.1
     - ninja
     - proto-opentelemetry-proto
+
+    # For cross-compiling
+    - curl                # [build_platform != target_platform]
+    - grpc-cpp            # [build_platform != target_platform]
+    - nlohmann_json       # [build_platform != target_platform]
+    - libprotobuf >=3.18  # [build_platform != target_platform]
+    - zlib                # [build_platform != target_platform]
   host:
     # -api and -sdk packages of different versions are not necessarily
     # compatible.
     - cpp-opentelemetry-api ={{ version }}
+    - curl
     - grpc-cpp
     - nlohmann_json
     - libprotobuf >=3.18
     - zlib
   run:
+    - curl
     - grpc-cpp
     - libprotobuf >=3.18
 
