@@ -1,1 +1,8 @@
 conda_forge_output_validation: true
+# Build is small/simple, so just use QEMU instead of working out the
+# cross-compilation
+provider:
+  linux_aarch64: emulated
+  linux_ppc64le: emulated
+  osx_arm64: emulated
+test_on_native_only: true
