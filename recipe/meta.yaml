@@ -12,7 +12,7 @@ source:
     - cross_compile_grpc_cpp_plugin_path.patch  # [build_platform != target_platform]
 
 build:
-  number: 3
+  number: 4
   always_include_files:
     # Must overwrite the ones installed by cpp-opentelemetry-api
     - lib/cmake/opentelemetry-cpp/  # [unix]
@@ -28,8 +28,8 @@ requirements:
     # For cross-compiling
     - curl                # [build_platform != target_platform]
     - grpc-cpp            # [build_platform != target_platform]
-    - nlohmann_json       # [build_platform != target_platform]
     - libprotobuf >=3.18  # [build_platform != target_platform]
+    - nlohmann_json       # [build_platform != target_platform]
     - zlib                # [build_platform != target_platform]
   host:
     # -api and -sdk packages of different versions are not necessarily
@@ -37,13 +37,15 @@ requirements:
     - cpp-opentelemetry-api ={{ version }}
     - curl
     - grpc-cpp
-    - nlohmann_json
     - libprotobuf >=3.18
+    - nlohmann_json
     - zlib
   run:
+    - cpp-opentelemetry-api ={{ version }}
     - curl
     - grpc-cpp
     - libprotobuf >=3.18
+    - nlohmann_json
 
 test:
   commands:
