@@ -1,5 +1,5 @@
 {% set name = "cpp-opentelemetry-sdk" %}
-{% set version = "1.1.0" %}
+{% set version = "1.1.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,12 +7,12 @@ package:
 
 source:
   url: https://github.com/open-telemetry/opentelemetry-cpp/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: f8fd3adddd47be382dc79c19d7e7efcf86a0dfbb5a237db6e0618dbb7eb8e058
+  sha256: b4e231e6b18dc6945831c8964d09d4195899e9def7ff9d0d3fa5000800494f3c
   patches:
     - cross_compile_grpc_cpp_plugin_path.patch  # [build_platform != target_platform]
 
 build:
-  number: 4
+  number: 0
   always_include_files:
     # Must overwrite the ones installed by cpp-opentelemetry-api
     - lib/cmake/opentelemetry-cpp/  # [unix]
@@ -65,7 +65,7 @@ about:
   license: Apache-2.0
   license_family: APACHE
   license_file: LICENSE
-  summary: 'The OpenTelemetry C++ Client'
+  summary: The OpenTelemetry C++ Client
   description: |
     OpenTelemetry is a collection of tools, APIs, and SDKs. Use it to
     instrument, generate, collect, and export telemetry data (metrics,
