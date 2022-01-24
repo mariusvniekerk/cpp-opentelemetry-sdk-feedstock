@@ -12,7 +12,7 @@ source:
     - cross_compile_grpc_cpp_plugin_path.patch  # [build_platform != target_platform]
 
 build:
-  number: 1
+  number: 2
   always_include_files:
     # Must overwrite the ones installed by cpp-opentelemetry-api
     - lib/cmake/opentelemetry-cpp/  # [unix]
@@ -23,7 +23,7 @@ requirements:
     - {{ compiler('cxx') }}
     - cmake >=3.1
     - ninja
-    - proto-opentelemetry-proto
+    - proto-opentelemetry-proto =0.11.0
 
     # For cross-compiling
     - curl                # [build_platform != target_platform]
