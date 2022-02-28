@@ -1,21 +1,25 @@
---- opentelemetry-cpp-1.1.0/cmake/opentelemetry-proto.cmake	2021-11-22 16:08:32.000000000 -0500
-+++ opentelemetry-cpp-1.1.0.new/cmake/opentelemetry-proto.cmake	2021-12-14 15:47:51.813976440 -0500
-@@ -121,11 +121,13 @@
+--- a/cmake/opentelemetry-proto.cmake
++++ b/cmake/opentelemetry-proto.cmake
+@@ -115,16 +115,13 @@ foreach(IMPORT_DIR ${PROTOBUF_IMPORT_DIRS})
  endforeach()
  
  if(WITH_OTLP_GRPC)
--if(CMAKE_CROSSCOMPILING)
+-  if(CMAKE_CROSSCOMPILING)
 -    find_program(gRPC_CPP_PLUGIN_EXECUTABLE grpc_cpp_plugin)
--else()
--    set(gRPC_CPP_PLUGIN_EXECUTABLE $<TARGET_FILE:gRPC::grpc_cpp_plugin>)
--endif()
-+    # When cross-compiling, look for the gRPC plugin
-+    # next to the Protobuf compiler
-+    get_filename_component(PROTOC_PATH ${PROTOBUF_PROTOC_EXECUTABLE} DIRECTORY)
-+    find_program(gRPC_CPP_PLUGIN_EXECUTABLE grpc_cpp_plugin
-+                 HINTS ${PROTOC_PATH}
-+                 NO_CMAKE_PATH
-+                 NO_CMAKE_ENVIRONMENT_PATH)
+-  else()
+-    if(TARGET gRPC::grpc_cpp_plugin)
+-      project_build_tools_get_imported_location(gRPC_CPP_PLUGIN_EXECUTABLE
+-                                                gRPC::grpc_cpp_plugin)
+-    else()
+-      find_program(gRPC_CPP_PLUGIN_EXECUTABLE grpc_cpp_plugin)
+-    endif()
+-  endif()
++  # When cross-compiling, look for the gRPC plugin
++  # next to the Protobuf compiler
++  get_filename_component(PROTOC_PATH ${PROTOBUF_PROTOC_EXECUTABLE} DIRECTORY)
++  find_program(gRPC_CPP_PLUGIN_EXECUTABLE grpc_cpp_plugin
++               HINTS ${PROTOC_PATH}
++               NO_CMAKE_PATH
++               NO_CMAKE_ENVIRONMENT_PATH)
+   message(STATUS "gRPC_CPP_PLUGIN_EXECUTABLE=${gRPC_CPP_PLUGIN_EXECUTABLE}")
  endif()
- 
- if(WITH_OTLP_GRPC)
