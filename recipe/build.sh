@@ -28,6 +28,7 @@ main() {
           -DBUILD_TESTING=OFF \
           -DWITH_API_ONLY=OFF \
           -DWITH_EXAMPLES=OFF \
+          -DWITH_LOGS_PREVIEW=ON \
           -DWITH_OTLP=ON \
           -DWITH_OTLP_GRPC=ON \
           -DWITH_OTLP_HTTP=ON \
