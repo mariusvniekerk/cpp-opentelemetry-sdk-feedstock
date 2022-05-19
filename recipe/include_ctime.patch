@@ -1,0 +1,10 @@
+--- a/exporters/ostream/src/metric_exporter.cc
++++ b/exporters/ostream/src/metric_exporter.cc
+@@ -2,6 +2,7 @@
+ // SPDX-License-Identifier: Apache-2.0
+ 
+ #include <chrono>
++#include <ctime>
+ #ifndef ENABLE_METRICS_PREVIEW
+ #  include <algorithm>
+ #  include "opentelemetry/exporters/ostream/metric_exporter.h"
