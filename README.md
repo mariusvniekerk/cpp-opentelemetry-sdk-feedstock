@@ -37,45 +37,87 @@ Current build status
         <table>
           <thead><tr><th>Variant</th><th>Status</th></tr></thead>
           <tbody><tr>
-              <td>linux_64</td>
+              <td>linux_64_grpc_cpp1.45</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=14769&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/cpp-opentelemetry-sdk-feedstock?branchName=main&jobName=linux&configuration=linux_64_" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/cpp-opentelemetry-sdk-feedstock?branchName=main&jobName=linux&configuration=linux_64_grpc_cpp1.45" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>linux_aarch64</td>
+              <td>linux_64_grpc_cpp1.46</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=14769&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/cpp-opentelemetry-sdk-feedstock?branchName=main&jobName=linux&configuration=linux_aarch64_" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/cpp-opentelemetry-sdk-feedstock?branchName=main&jobName=linux&configuration=linux_64_grpc_cpp1.46" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>linux_ppc64le</td>
+              <td>linux_aarch64_grpc_cpp1.45</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=14769&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/cpp-opentelemetry-sdk-feedstock?branchName=main&jobName=linux&configuration=linux_ppc64le_" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/cpp-opentelemetry-sdk-feedstock?branchName=main&jobName=linux&configuration=linux_aarch64_grpc_cpp1.45" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>osx_64</td>
+              <td>linux_aarch64_grpc_cpp1.46</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=14769&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/cpp-opentelemetry-sdk-feedstock?branchName=main&jobName=osx&configuration=osx_64_" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/cpp-opentelemetry-sdk-feedstock?branchName=main&jobName=linux&configuration=linux_aarch64_grpc_cpp1.46" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>osx_arm64</td>
+              <td>linux_ppc64le_grpc_cpp1.45</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=14769&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/cpp-opentelemetry-sdk-feedstock?branchName=main&jobName=osx&configuration=osx_arm64_" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/cpp-opentelemetry-sdk-feedstock?branchName=main&jobName=linux&configuration=linux_ppc64le_grpc_cpp1.45" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>win_64</td>
+              <td>linux_ppc64le_grpc_cpp1.46</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=14769&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/cpp-opentelemetry-sdk-feedstock?branchName=main&jobName=win&configuration=win_64_" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/cpp-opentelemetry-sdk-feedstock?branchName=main&jobName=linux&configuration=linux_ppc64le_grpc_cpp1.46" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>osx_64_grpc_cpp1.45</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=14769&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/cpp-opentelemetry-sdk-feedstock?branchName=main&jobName=osx&configuration=osx_64_grpc_cpp1.45" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>osx_64_grpc_cpp1.46</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=14769&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/cpp-opentelemetry-sdk-feedstock?branchName=main&jobName=osx&configuration=osx_64_grpc_cpp1.46" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>osx_arm64_grpc_cpp1.45</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=14769&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/cpp-opentelemetry-sdk-feedstock?branchName=main&jobName=osx&configuration=osx_arm64_grpc_cpp1.45" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>osx_arm64_grpc_cpp1.46</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=14769&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/cpp-opentelemetry-sdk-feedstock?branchName=main&jobName=osx&configuration=osx_arm64_grpc_cpp1.46" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>win_64_grpc_cpp1.45</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=14769&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/cpp-opentelemetry-sdk-feedstock?branchName=main&jobName=win&configuration=win_64_grpc_cpp1.45" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>win_64_grpc_cpp1.46</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=14769&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/cpp-opentelemetry-sdk-feedstock?branchName=main&jobName=win&configuration=win_64_grpc_cpp1.46" alt="variant">
                 </a>
               </td>
             </tr>

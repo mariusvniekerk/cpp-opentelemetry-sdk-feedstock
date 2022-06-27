@@ -1,5 +1,5 @@
 {% set name = "cpp-opentelemetry-sdk" %}
-{% set version = "1.4.0" %}
+{% set version = "1.4.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/open-telemetry/opentelemetry-cpp/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: 110f4fb2e38dcc72a421647631cfbb9429afd3c77c6c98829cc1d11bd0c72563
+  sha256: 301b1ab74a664723560f46c29f228360aff1e2d63e930b963755ea077ae67524
   patches:
     - cross_compile_grpc_cpp_plugin_path.patch  # [build_platform != target_platform]
     - include_ctime.patch
@@ -27,11 +27,11 @@ requirements:
     - proto-opentelemetry-proto =0.17.0
 
     # For cross-compiling
-    - curl                # [build_platform != target_platform]
-    - grpc-cpp            # [build_platform != target_platform]
-    - libprotobuf >=3.18  # [build_platform != target_platform]
-    - nlohmann_json       # [build_platform != target_platform]
-    - zlib                # [build_platform != target_platform]
+    - curl                    # [build_platform != target_platform]
+    - grpc-cpp                # [build_platform != target_platform]
+    - libprotobuf >=3.18      # [build_platform != target_platform]
+    - nlohmann_json >=3.10.5  # [build_platform != target_platform]
+    - zlib                    # [build_platform != target_platform]
   host:
     # -api and -sdk packages of different versions are not necessarily
     # compatible.
@@ -39,7 +39,7 @@ requirements:
     - curl
     - grpc-cpp
     - libprotobuf >=3.18
-    - nlohmann_json
+    - nlohmann_json >=3.10.5
     - zlib
   run:
     - cpp-opentelemetry-api ={{ version }}
