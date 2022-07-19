@@ -13,7 +13,7 @@ source:
     - include_ctime.patch
 
 build:
-  number: 1
+  number: 2
   always_include_files:
     # Must overwrite the ones installed by cpp-opentelemetry-api
     - lib/cmake/opentelemetry-cpp/  # [unix]
@@ -32,6 +32,8 @@ requirements:
     - libprotobuf >=3.18      # [build_platform != target_platform]
     - nlohmann_json >=3.10.5  # [build_platform != target_platform]
     - zlib                    # [build_platform != target_platform]
+    # TODO: Use https://github.com/jupp0r/prometheus-cpp when that is published on conda-forge
+    # - prometheus-cpp          # [build_platform != target_platform] 
   host:
     # -api and -sdk packages of different versions are not necessarily
     # compatible.
@@ -41,12 +43,16 @@ requirements:
     - libprotobuf >=3.18
     - nlohmann_json >=3.10.5
     - zlib
+    # TODO: Use https://github.com/jupp0r/prometheus-cpp when that is published on conda-forge
+    # - prometheus-cpp
   run:
     - cpp-opentelemetry-api ={{ version }}
     - curl
     - grpc-cpp
     - libprotobuf >=3.18
     - nlohmann_json
+    # TODO: Use https://github.com/jupp0r/prometheus-cpp when that is published on conda-forge
+    # - prometheus-cpp
 
 test:
   commands:
