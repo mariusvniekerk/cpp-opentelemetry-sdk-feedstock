@@ -21,7 +21,9 @@ cmake .. ^
       -DWITH_OTLP=ON ^
       -DWITH_OTLP_GRPC=ON ^
       -DWITH_OTLP_HTTP=ON ^
-      -DWITH_ZIPKIN=ON
+      -DWITH_ZIPKIN=ON ^
+      -DWITH_METRICS_PREVIEW=ON ^
+      -DWITH_PROMETHEUS=ON
 
 cmake --build . --config Release --target install
 if errorlevel 1 exit 1

@@ -1,3 +1,4 @@
+# code: language: jinja-yaml
 {% set name = "cpp-opentelemetry-sdk" %}
 {% set version = "1.4.1" %}
 
@@ -6,14 +7,14 @@ package:
   version: {{ version }}
 
 source:
-  url: https://github.com/open-telemetry/opentelemetry-cpp/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: 301b1ab74a664723560f46c29f228360aff1e2d63e930b963755ea077ae67524
-  patches:
-    - cross_compile_grpc_cpp_plugin_path.patch  # [build_platform != target_platform]
-    - include_ctime.patch
+  - url: https://github.com/open-telemetry/opentelemetry-cpp/archive/refs/tags/v{{ version }}.tar.gz
+    sha256: 301b1ab74a664723560f46c29f228360aff1e2d63e930b963755ea077ae67524
+    patches:
+      - cross_compile_grpc_cpp_plugin_path.patch  # [build_platform != target_platform]
+      - include_ctime.patch
 
 build:
-  number: 1
+  number: 2
   always_include_files:
     # Must overwrite the ones installed by cpp-opentelemetry-api
     - lib/cmake/opentelemetry-cpp/  # [unix]
@@ -32,6 +33,7 @@ requirements:
     - libprotobuf >=3.18      # [build_platform != target_platform]
     - nlohmann_json >=3.10.5  # [build_platform != target_platform]
     - zlib                    # [build_platform != target_platform]
+    - prometheus-cpp          # [build_platform != target_platform] 
   host:
     # -api and -sdk packages of different versions are not necessarily
     # compatible.
@@ -41,12 +43,14 @@ requirements:
     - libprotobuf >=3.18
     - nlohmann_json >=3.10.5
     - zlib
+    - prometheus-cpp
   run:
     - cpp-opentelemetry-api ={{ version }}
     - curl
     - grpc-cpp
     - libprotobuf >=3.18
     - nlohmann_json
+    - prometheus-cpp
 
 test:
   commands:

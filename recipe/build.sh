@@ -9,7 +9,7 @@ main() {
     cp -r $CONDA_PREFIX/share/opentelemetry/opentelemetry-proto/opentelemetry ./third_party/opentelemetry-proto/
     # Stop CMake from trying to git clone the Protobuf definitions.
     mkdir ./third_party/opentelemetry-proto/.git
-
+    
     mkdir -p build-cpp
     pushd build-cpp
 
@@ -32,6 +32,8 @@ main() {
           -DWITH_OTLP=ON \
           -DWITH_OTLP_GRPC=ON \
           -DWITH_OTLP_HTTP=ON \
+          -DWITH_METRICS_PREVIEW=ON \
+          -DWITH_PROMETHEUS=ON \
           -DProtobuf_PROTOC_EXECUTABLE=$PROTOC_EXECUTABLE \
           -DWITH_ZIPKIN=ON
 
