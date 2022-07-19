@@ -7,6 +7,9 @@ REM Release tarballs do not contain the required Protobuf definitions.
 robocopy /S /E %BUILD_PREFIX%\share\opentelemetry\opentelemetry-proto\opentelemetry .\third_party\opentelemetry-proto\opentelemetry
 REM Stop CMake from trying to git clone the Protobuf definitions.
 mkdir .\third_party\opentelemetry-proto\.git
+REM fool build into believing it cloned the prometheus-cpp dep
+mkdir .\third_party\prometheus-cpp/.git
+
 
 cd build-cpp
 cmake .. ^

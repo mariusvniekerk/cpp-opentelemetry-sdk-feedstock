@@ -6,11 +6,15 @@ package:
   version: {{ version }}
 
 source:
-  url: https://github.com/open-telemetry/opentelemetry-cpp/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: 301b1ab74a664723560f46c29f228360aff1e2d63e930b963755ea077ae67524
-  patches:
-    - cross_compile_grpc_cpp_plugin_path.patch  # [build_platform != target_platform]
-    - include_ctime.patch
+  - url: https://github.com/open-telemetry/opentelemetry-cpp/archive/refs/tags/v{{ version }}.tar.gz
+    sha256: 301b1ab74a664723560f46c29f228360aff1e2d63e930b963755ea077ae67524
+    patches:
+      - cross_compile_grpc_cpp_plugin_path.patch  # [build_platform != target_platform]
+      - include_ctime.patch
+  - folder: third_party/prometheus-cpp
+    # This should match up with https://github.com/open-telemetry/opentelemetry-cpp/tree/main/third_party
+    url: https://github.com/jupp0r/prometheus-cpp/releases/download/v1.0.0/prometheus-cpp-with-submodules.tar.gz
+    sha256: 593ea4e2b6f4ecf9bd73136e35f5ec66a69249f8cbbb90963e9e04517fb471c0
 
 build:
   number: 2
