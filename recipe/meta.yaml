@@ -1,3 +1,4 @@
+# code: language: jinja-yaml
 {% set name = "cpp-opentelemetry-sdk" %}
 {% set version = "1.4.1" %}
 
@@ -11,10 +12,6 @@ source:
     patches:
       - cross_compile_grpc_cpp_plugin_path.patch  # [build_platform != target_platform]
       - include_ctime.patch
-  - folder: third_party/prometheus-cpp
-    # This should match up with https://github.com/open-telemetry/opentelemetry-cpp/tree/main/third_party
-    url: https://github.com/jupp0r/prometheus-cpp/releases/download/v1.0.0/prometheus-cpp-with-submodules.tar.gz
-    sha256: 593ea4e2b6f4ecf9bd73136e35f5ec66a69249f8cbbb90963e9e04517fb471c0
 
 build:
   number: 2
@@ -36,8 +33,7 @@ requirements:
     - libprotobuf >=3.18      # [build_platform != target_platform]
     - nlohmann_json >=3.10.5  # [build_platform != target_platform]
     - zlib                    # [build_platform != target_platform]
-    # TODO: Use https://github.com/jupp0r/prometheus-cpp when that is published on conda-forge
-    # - prometheus-cpp          # [build_platform != target_platform] 
+    - prometheus-cpp          # [build_platform != target_platform] 
   host:
     # -api and -sdk packages of different versions are not necessarily
     # compatible.
@@ -47,16 +43,14 @@ requirements:
     - libprotobuf >=3.18
     - nlohmann_json >=3.10.5
     - zlib
-    # TODO: Use https://github.com/jupp0r/prometheus-cpp when that is published on conda-forge
-    # - prometheus-cpp
+    - prometheus-cpp
   run:
     - cpp-opentelemetry-api ={{ version }}
     - curl
     - grpc-cpp
     - libprotobuf >=3.18
     - nlohmann_json
-    # TODO: Use https://github.com/jupp0r/prometheus-cpp when that is published on conda-forge
-    # - prometheus-cpp
+    - prometheus-cpp
 
 test:
   commands:

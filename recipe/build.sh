@@ -9,9 +9,7 @@ main() {
     cp -r $CONDA_PREFIX/share/opentelemetry/opentelemetry-proto/opentelemetry ./third_party/opentelemetry-proto/
     # Stop CMake from trying to git clone the Protobuf definitions.
     mkdir ./third_party/opentelemetry-proto/.git
-    # fool build into believing it cloned the prometheus-cpp dep
-    mkdir ./third_party/prometheus-cpp/.git
-
+    
     mkdir -p build-cpp
     pushd build-cpp
 
