@@ -11,8 +11,8 @@ jobs:
       win_64_grpc_cpp1.46:
         CONFIG: win_64_grpc_cpp1.46
         UPLOAD_PACKAGES: 'True'
-      win_64_grpc_cpp1.47:
-        CONFIG: win_64_grpc_cpp1.47
+      win_64_grpc_cpp1.48:
+        CONFIG: win_64_grpc_cpp1.48
         UPLOAD_PACKAGES: 'True'
   timeoutInMinutes: 360
   variables:
