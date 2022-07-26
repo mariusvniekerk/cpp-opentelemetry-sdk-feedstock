@@ -14,7 +14,7 @@ source:
       - include_ctime.patch
 
 build:
-  number: 3
+  number: 4
   always_include_files:
     # Must overwrite the ones installed by cpp-opentelemetry-api
     - lib/cmake/opentelemetry-cpp/  # [unix]

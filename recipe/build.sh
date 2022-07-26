@@ -32,7 +32,6 @@ main() {
           -DWITH_OTLP=ON \
           -DWITH_OTLP_GRPC=ON \
           -DWITH_OTLP_HTTP=ON \
-          -DWITH_METRICS_PREVIEW=ON \
           -DWITH_PROMETHEUS=ON \
           -DProtobuf_PROTOC_EXECUTABLE=$PROTOC_EXECUTABLE \
           -DWITH_ZIPKIN=ON
